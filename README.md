@@ -1,6 +1,6 @@
-# AI Price Comparison Agent
+# Basketball Ranking Bot 🏀
 
-Searches Amazon, eBay, Temu, Walmart, Best Buy, and more to find the cheapest price for any product.
+Ask anything about basketball rankings and get a live, data-driven answer — teams, players, stats, positions, historical seasons, and more.
 
 ## Setup
 
@@ -18,37 +18,41 @@ export ANTHROPIC_API_KEY=sk-ant-...
 
 ## Running
 
-**Interactive mode** — prompts you to enter products one at a time:
+**Interactive mode** — type questions one at a time:
 
 ```bash
-python agent.py
+python bot.py
 ```
 
-**Single query mode** — pass the product directly as an argument:
+**Single query mode** — pass the question as an argument:
 
 ```bash
-python agent.py "Sony WH-1000XM5 headphones"
-python agent.py "iPhone 15 128GB case"
-python agent.py "standing desk"
+python bot.py "rank the top 10 NBA teams right now"
+python bot.py "best point guards this season by assists"
+python bot.py "top scorers in the NBA 2024-25"
+python bot.py "rank all 30 NBA teams by defensive rating"
+python bot.py "best rookies this season"
 ```
 
 ## Example output
 
 ```
-Searching for: Sony WH-1000XM5
+Query: rank the top 5 NBA teams right now
 ============================================================
-  [tool: search_web] sony wh-1000xm5 price site:amazon.com
-  [tool: search_web] sony wh-1000xm5 cheapest price ebay walmart temu
-  [tool: fetch_page] https://www.amazon.com/...
+  [search_web] NBA standings 2024-25 season current
+  [fetch_page] https://www.espn.com/nba/standings
 
-| Store    | Product                        | Price   | URL                  |
-|----------|--------------------------------|---------|----------------------|
-| Temu     | Sony WH-1000XM5 (3rd party)    | $189.99 | https://temu.com/... |
-| Walmart  | Sony WH-1000XM5                | $279.99 | https://walmart...   |
-| Amazon   | Sony WH-1000XM5                | $299.99 | https://amazon...    |
-| eBay     | Sony WH-1000XM5 (used)         | $319.00 | https://ebay.com/... |
-| Best Buy | Sony WH-1000XM5                | $349.99 | https://bestbuy...   |
+**NBA Team Rankings — 2024-25 Season (as of Feb 2025)**
 
-Best deal: Temu at $189.99
+1. Cleveland Cavaliers (40-12, .769 Win%)
+2. Oklahoma City Thunder (39-12, .765 Win%)
+3. Boston Celtics (37-15, .711 Win%)
+4. Houston Rockets (35-17, .673 Win%)
+5. Memphis Grizzlies (34-18, .654 Win%)
+
+The Cavaliers are the surprise story of the season, posting the best
+record in the league — a major leap from recent years. OKC continues
+its ascent behind Shai Gilgeous-Alexander, while Boston looks to defend
+its championship.
 ============================================================
 ```
